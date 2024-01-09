@@ -1,6 +1,6 @@
 import { useCallback, useContext } from "react";
 import { CurrentUserContext, UserContext } from "../context";
-import { person } from "../type";
+// import { person } from "../type";
 
 function useAddPerson() {
   const currentUser = useContext(CurrentUserContext);
@@ -24,13 +24,13 @@ function useAddPerson() {
       return;
     }
     console.log("hello2");
-    const newPerson: person = {
-      id: String(Date.now()),
-      name: "himanshu",
-      type: "customers",
-      entries: null,
-      date: "",
-    };
+    // const newPerson: person = {
+    //   id: String(Date.now()),
+    //   name: "himanshu",
+    //   type: "customers",
+    //   entries: null,
+    //   date: "",
+    // };
 
     // setUsers((prevUsers) => {
     //   const indexofCurrentUser = prevUsers.findIndex(

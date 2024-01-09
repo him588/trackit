@@ -2,8 +2,8 @@ import { AppleIcon, FacebookIcon, GoogleIcon } from "../../icon";
 
 import { Design } from "../../core";
 import Form from "./form";
-import { useContext } from "react";
-import { UserContext } from "../../context";
+// import { useContext } from "react";
+// import { UserContext } from "../../context";
 
 export default function Login() {
   return (
