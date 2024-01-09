@@ -1,25 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  Cashbook,
+  Customer,
+  Home,
+  Login,
+  Purchases,
+  Sales,
+  Sighup,
+  Suppliers,
+} from "./component/pages";
+// import CurrentPageProvider from "./component/context/currentpageprovider";
+import {
+  UserContextProvider,
+  CurrentPageProvider,
+  CurrentUserContextProvider,
+  UserContext,
+} from "./component/context";
+import { useContext } from "react";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <UserContextProvider>
+        <CurrentPageProvider>
+          <CurrentUserContextProvider>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/Login" element={<Login />} />
+              <Route path="/Sighup" element={<Sighup />} />
+              <Route path="/Customers" element={<Customer />} />
+              <Route path="/Suppliers" element={<Suppliers />} />
+              <Route path="/Sales" element={<Sales />} />
+              <Route path="/Purchase" element={<Purchases />} />
+              <Route path="/Cashbook" element={<Cashbook />} />
+            </Routes>
+          </CurrentUserContextProvider>
+        </CurrentPageProvider>
+      </UserContextProvider>
+    </BrowserRouter>
   );
 }
 
