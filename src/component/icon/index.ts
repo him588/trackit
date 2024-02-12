@@ -12,6 +12,13 @@ import FacebookIcon from "./facebook";
 import GoogleIcon from "./google";
 import AppleIcon from "./apple";
 import Addicon from "./addicon";
+import SearchIcon from "./searchicon";
+import DotIcon from "./3dot";
+import InfoIcon from "./info";
+import NewSalesIcon from "./newsales";
+import DeleteIcon from "./delete";
+import SuccessIcon from "./success";
+import DownArrowIcon from "./arrow";
 export {
   CustomerIcon,
   SuppliesIcon,
@@ -27,4 +34,11 @@ export {
   GoogleIcon,
   AppleIcon,
   Addicon,
+  SearchIcon,
+  DotIcon,
+  InfoIcon,
+  NewSalesIcon,
+  DeleteIcon,
+  SuccessIcon,
+  DownArrowIcon,
 };

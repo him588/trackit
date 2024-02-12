@@ -1,31 +1,40 @@
 import { useContext, useState } from "react";
-import { Navbar } from "../../core";
+import { Fulldeatail, Navbar } from "../../core";
 import RenderCustomer from "./rendercustomer";
-import { AddCusandSup } from "../../component/core";
-import { useAddPerson } from "../../component/custom";
-import { CurrentUserContext, UserContext } from "../../context";
+import { AddCusandSup } from "../../core";
+import { SelectedPersonContext, UseCurrentPage } from "../../context";
+import { CustomerIcon } from "../../icon";
 
 export default function Customer() {
   const [addPerson, setaddPerson] = useState(false);
-  const AddPerson = useAddPerson();
-  const user = useContext(UserContext)?.users;
-  const currentuser = useContext(CurrentUserContext)?.currentUser;
-  console.log(user);
-  console.log(currentuser);
+  const currentPage = useContext(UseCurrentPage).currentPage;
+  const SelectedPerson = useContext(SelectedPersonContext)?.selectedPerson;
 
-  // console.log(Addperson);
   return (
-    <div className=" min-h-screen flex">
+    <div className=" min-h-screen flex overflow-hidden">
       <Navbar />
 
       {addPerson ? (
-        <AddCusandSup setaddPerson={setaddPerson} AddPerson={AddPerson} />
+        <AddCusandSup
+          setaddPerson={setaddPerson}
+          type={currentPage.customer ? "customer" : "supplier"}
+        />
       ) : (
         ""
       )}
 
-      <div className=" w-[40%] min-h-screen">
+      <div className=" w-[30%] max-h-screen bg-[#f3f3fc] border-r-[1.4px] border-solid border-[#a9a8a8]">
         <RenderCustomer setaddPerson={setaddPerson} />
+      </div>
+      <div className=" w-[calc(100%-30%-200px)] max-h-screen bg-[#f3f3fc]">
+        {SelectedPerson === null ? (
+          <div className=" w-full h-full flex-col flex items-center justify-center">
+            <CustomerIcon h={200} w={120} c="#adadad" />
+            <h1 className=" text-[40px] text-[#adadad]">No Person selected</h1>
+          </div>
+        ) : (
+          <Fulldeatail />
+        )}
       </div>
     </div>
   );

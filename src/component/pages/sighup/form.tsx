@@ -13,7 +13,7 @@ export default function Form() {
     name: "",
     email: "",
     password: "",
-    accountholder: null,
+    accountholder: [],
   });
   const [errors, seterrors] = useState({ name: "", email: "", password: "" });
   const AddUser = useAdduser();
@@ -65,7 +65,7 @@ export default function Form() {
       {/* <p className=" text-sm font-semibold ml-[220px]">Forgot Password?</p> */}
       <button
         onClick={handleclick}
-        className=" h-11 w-[300px] mt-1 rounded-full text-[white] text-base font-semibold bg-[black] "
+        className=" h-10 w-[310px] border-[2px] border-solid border-white bg-[#16233e] mt-1 rounded-full text-[white] text-base font-semibold  "
       >
         Sigh up
       </button>

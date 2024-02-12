@@ -1,23 +1,43 @@
+import { useContext, useEffect } from "react";
 import { Name } from "../../core";
-import { Addicon } from "../../icon";
-type prop = { setaddPerson: React.Dispatch<React.SetStateAction<boolean>> };
+import { CurrentUserContext, UseCurrentPage } from "../../context";
+import { person } from "../../type";
+// import { Addicon } from "../../icon";
+type prop = {
+  List: person[] | undefined;
+  setList: React.Dispatch<React.SetStateAction<person[] | undefined>>;
+};
 
-export default function CustomerList({ setaddPerson }: prop) {
+export default function CustomerList({ List, setList }: prop) {
+  const currentUser = useContext(CurrentUserContext)?.currentUser;
+  const currentpage = useContext(UseCurrentPage).currentPage;
+  // const [selected, setselected] = useState(false);
+
+  useEffect(() => {
+    if (currentpage.customer) {
+      const newarray = currentUser?.accountholder.filter(
+        (person) => person.type === "customer"
+      );
+      setList(newarray);
+    } else if (currentpage.supplier) {
+      const newarray = currentUser?.accountholder.filter(
+        (person) => person.type === "supplier"
+      );
+      setList(newarray);
+    }
+  }, [currentpage, currentUser, setList]);
+
   // console.log(setaddPerson);
   return (
-    <div className="w-full relative">
-      <div className=" h-6 w-[101%] bg-[#f7f5f7] mt-2 py-1 flex items-center justify-between">
+    <div className="w-full relative ">
+      <div className=" h-6 w-[100%] bg-[grey] bg-opacity-10 text-black mt-2 p-1 rounded-md flex items-center justify-between">
         <p>Name</p>
         <p>Amount</p>
       </div>
-      <div className=" mt-1 flex flex-col gap-1">
-        <Name />
-      </div>
-      <div
-        onClick={() => setaddPerson(true)}
-        className=" w-12 h-12 bg-[#0f1525] cursor-pointer rounded-lg fixed bottom-1 left-[51%] flex items-center justify-center "
-      >
-        <Addicon h={50} w={50} c="white" />
+      <div className=" mt-1 flex h-[400px] pb-1 flex-col gap-2 overflow-y-scroll scrollbar-hide">
+        {List?.map((item, index) => (
+          <Name id={item.id} key={index} />
+        ))}
       </div>
     </div>
   );

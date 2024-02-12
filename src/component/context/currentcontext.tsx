@@ -13,6 +13,7 @@ function CurrentUserContextProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const currentUserString = localStorage.getItem("currentuser");
+
     const currentUser: user | null = currentUserString
       ? JSON.parse(currentUserString)
       : null;

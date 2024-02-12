@@ -12,21 +12,27 @@ type detail = {
   c: string;
 };
 type entry = {
+  msdid: number;
   date: string;
+  time: string;
   type: string;
   argument: string;
   amount: number;
+  Ispaymentrecieved: boolean;
 };
 type person = {
+  readonly id: string;
   name: string;
   date: string;
   type: string;
-  entries: entry[] | null;
+  entries: entry[];
+  color: string;
+  time: string;
 };
 type user = {
   name: string;
   email: string;
   password: string;
-  accountholder: person[] | null;
+  accountholder: person[];
 };
 export type { findCurrentPage, detail, user, person, entry };

@@ -14,7 +14,6 @@ export default function useFindpage() {
 
         // Use type assertion here
         newState[key as keyof findCurrentPage] = true;
-        console.log(prev);
 
         return newState;
       });

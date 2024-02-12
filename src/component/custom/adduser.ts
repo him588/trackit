@@ -3,6 +3,7 @@ import { user } from "../type";
 
 import { CurrentUserContext } from "../context";
 import { UserContext } from "../context";
+import { useNavigate } from "react-router-dom";
 
 export default function useAdduser() {
   const NameError = "Name is not less than 3 char";
@@ -11,6 +12,7 @@ export default function useAdduser() {
   // const Users = useContext(Usercontext).users;
   const Users = useContext(UserContext)?.users;
   const SetCurrentUser = useContext(CurrentUserContext)?.setcurrentUser;
+  const Navigator = useNavigate();
 
   const setUsers = useContext(UserContext)?.setUsers;
   const AddUser = useCallback(
@@ -49,13 +51,14 @@ export default function useAdduser() {
               localStorage.setItem("currentuser", JSON.stringify(inputs));
               return inputs;
             });
+            Navigator("/customers");
           }
         } else {
           alert("user already exists");
         }
       }
     },
-    [SetCurrentUser, Users, setUsers]
+    [SetCurrentUser, Users, setUsers, Navigator]
   );
   return AddUser;
 }

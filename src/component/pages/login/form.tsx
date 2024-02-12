@@ -16,7 +16,7 @@ export default function Form() {
     console.log(CheckUserExist);
 
     if (CheckUserExist === undefined) {
-      alert("Please go to login page");
+      // alert("Please go to login page");
       setErrors((prev) => {
         return { ...prev, email: "User not registered" };
       });
@@ -38,11 +38,14 @@ export default function Form() {
   return (
     <div className=" flex flex-col gap-2 mt-11 justify-center items-center relative">
       <Input
-        placeholder="Username"
+        placeholder="Email"
         value={Inputs.email}
         handleChange={(value) => {
           setInputs((prev) => {
             return { ...prev, email: value };
+          });
+          setErrors((prev) => {
+            return { ...prev, email: "" };
           });
         }}
         error={Errors.email}
@@ -54,12 +57,17 @@ export default function Form() {
           setInputs((prev) => {
             return { ...prev, password: value };
           });
+          setErrors((prev) => {
+            return { ...prev, password: "" };
+          });
         }}
         error={Errors.password}
       />
-      <p className=" text-sm font-semibold ml-[220px]">Forgot Password?</p>
+      <p className=" text-sm text-white font-semibold ml-[190px] -mt-2">
+        Forgot Password?
+      </p>
       <button
-        className=" h-11 w-[350px] bg-[#0f1525] mt-3 rounded-full text-[white] text-base font-semibold  "
+        className=" h-10 w-[310px] border-[2px] border-solid border-white bg-[#16233e] mt-1 rounded-full text-[white] text-base font-semibold  "
         onClick={handleClick}
       >
         Login

@@ -5,6 +5,10 @@ import {
   CurrentUserContextProvider,
 } from "./currentcontext";
 import { UserContext, UserContextProvider } from "./usercontext";
+import {
+  SelectedPersonContext,
+  SelectedPersonContextProvider,
+} from "./selectedperson";
 
 export {
   UseCurrentPage,
@@ -13,4 +17,6 @@ export {
   CurrentPageProvider,
   CurrentUserContext,
   CurrentUserContextProvider,
+  SelectedPersonContext,
+  SelectedPersonContextProvider,
 };

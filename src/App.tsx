@@ -15,25 +15,29 @@ import {
   UserContextProvider,
   CurrentPageProvider,
   CurrentUserContextProvider,
+  SelectedPersonContextProvider,
 } from "./component/context";
 // import { useContext } from "react";
 
 function App() {
+  // localStorage.clear();
   return (
     <BrowserRouter>
       <UserContextProvider>
         <CurrentPageProvider>
           <CurrentUserContextProvider>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/Login" element={<Login />} />
-              <Route path="/Sighup" element={<Sighup />} />
-              <Route path="/Customers" element={<Customer />} />
-              <Route path="/Suppliers" element={<Suppliers />} />
-              <Route path="/Sales" element={<Sales />} />
-              <Route path="/Purchase" element={<Purchases />} />
-              <Route path="/Cashbook" element={<Cashbook />} />
-            </Routes>
+            <SelectedPersonContextProvider>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/Login" element={<Login />} />
+                <Route path="/Sighup" element={<Sighup />} />
+                <Route path="/Customers" element={<Customer />} />
+                <Route path="/Suppliers" element={<Customer />} />
+                <Route path="/Sales" element={<Sales />} />
+                <Route path="/Purchase" element={<Purchases />} />
+                <Route path="/Cashbook" element={<Cashbook />} />
+              </Routes>
+            </SelectedPersonContextProvider>
           </CurrentUserContextProvider>
         </CurrentPageProvider>
       </UserContextProvider>
