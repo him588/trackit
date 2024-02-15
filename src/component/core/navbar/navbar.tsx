@@ -15,7 +15,7 @@ export default function Navbar() {
   const Activepage = useFindpage();
   const { currentPage } = useContext(UseCurrentPage);
   return (
-    <div className=" w-[200px] min-h-screen py-1 bg-[#0f1525] px-1">
+    <div className=" w-[200px] min-h-screen py-1 bg-[#0f1525] px-1 max-[400px]:hidden">
       <h1 className=" text-center text-[45px] text-white font-semibold">
         Trackit
       </h1>

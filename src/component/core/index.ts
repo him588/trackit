@@ -7,6 +7,7 @@ import AddCusandSup from "./addcus&sup/addnew";
 import TopNav from "./topnav/topnav";
 import Fulldeatail from "./fulldetail/fulldetail";
 import DropDown from "./dropdown/dropdown";
+import MobileNav from "./mobilenav/mobilenav";
 export {
   Navbar,
   Functionality,
@@ -17,4 +18,5 @@ export {
   TopNav,
   Fulldeatail,
   DropDown,
+  MobileNav
 };

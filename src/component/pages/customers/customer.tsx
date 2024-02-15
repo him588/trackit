@@ -12,7 +12,7 @@ export default function Customer() {
 
   return (
     <div className=" min-h-screen flex overflow-hidden">
-      <Navbar />
+      <Navbar  />
 
       {addPerson ? (
         <AddCusandSup
@@ -23,10 +23,11 @@ export default function Customer() {
         ""
       )}
 
-      <div className=" w-[30%] max-h-screen bg-[#f3f3fc] border-r-[1.4px] border-solid border-[#a9a8a8]">
+      <div className=" w-[30%] max-h-screen bg-[#f3f3fc] border-r-[1.4px] border-solid border-[#a9a8a8] max-[400px]:w-[100%] max-[400px]:border-r-0">
         <RenderCustomer setaddPerson={setaddPerson} />
+
       </div>
-      <div className=" w-[calc(100%-30%-200px)] max-h-screen bg-[#f3f3fc]">
+      <div className=" w-[calc(100%-30%-200px)] max-h-screen bg-[#f3f3fc] max-[400px]:hidden">
         {SelectedPerson === null ? (
           <div className=" w-full h-full flex-col flex items-center justify-center">
             <CustomerIcon h={200} w={120} c="#adadad" />

@@ -1,4 +1,4 @@
-import { Functionality, TopNav } from "../../core";
+import { Functionality, MobileNav, TopNav } from "../../core";
 import CustomerList from "./customerlist";
 import { Addicon } from "../../icon";
 import { useContext, useEffect, useState } from "react";
@@ -42,9 +42,12 @@ export default function RenderCustomer({ setaddPerson }: prop) {
       <div className=" h-[1.3px] w-full  mt-2 relative z-50"></div>
       <Functionality List={List} setList={SetList} />
       <CustomerList List={List} setList={SetList} />
-      <div
+
+    <MobileNav/>
+
+      <div  
         onClick={() => setaddPerson(true)}
-        className=" w-12 h-12 bg-[#0f1525] absolute cursor-pointer rounded-lg  bottom-1 right-2 flex items-center justify-center "
+        className=" w-12 h-12 bg-[#0f1525] absolute cursor-pointer rounded-lg  bottom-2 right-2 flex items-center justify-center max-[400px]:bottom-12 max-[400px]:right-1 "
       >
         <Addicon h={50} w={50} c="white" />
       </div>

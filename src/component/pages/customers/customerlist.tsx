@@ -36,7 +36,7 @@ export default function CustomerList({ List, setList }: prop) {
       </div>
       <div className=" mt-1 flex h-[400px] pb-1 flex-col gap-2 overflow-y-scroll scrollbar-hide">
         {List?.map((item, index) => (
-          <Name id={item.id} key={index} />
+          <Name account={item} key={index} />
         ))}
       </div>
     </div>

@@ -8,7 +8,6 @@ import {
   Purchases,
   Sales,
   Sighup,
-  Suppliers,
 } from "./component/pages";
 // import CurrentPageProvider from "./component/context/currentpageprovider";
 import {
@@ -17,6 +16,7 @@ import {
   CurrentUserContextProvider,
   SelectedPersonContextProvider,
 } from "./component/context";
+import { Fulldeatail } from "./component/core";
 // import { useContext } from "react";
 
 function App() {
@@ -36,6 +36,7 @@ function App() {
                 <Route path="/Sales" element={<Sales />} />
                 <Route path="/Purchase" element={<Purchases />} />
                 <Route path="/Cashbook" element={<Cashbook />} />
+                <Route path="/person/:id" element={<Fulldeatail />} />
               </Routes>
             </SelectedPersonContextProvider>
           </CurrentUserContextProvider>
