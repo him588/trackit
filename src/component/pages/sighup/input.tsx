@@ -1,4 +1,3 @@
-import { user } from "../../type";
 
 type input = {
   placeholder: string;

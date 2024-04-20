@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useAddPerson } from "../../custom";
-import DropDown from "../dropdown/dropdown";
 
 type prop = {
   setaddPerson: React.Dispatch<React.SetStateAction<boolean>>;

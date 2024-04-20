@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import { UseCurrentPage } from "../../context";
 import { Navbar, TopNav } from "../../core";
 
 export default function Suppliers() {

@@ -4,7 +4,6 @@ import {
   Logout,
   PurchaeIcon,
   SalesIcon,
-  SettingIcon,
   SuppliesIcon,
 } from "../../icon";
 import Profile from "./profile";

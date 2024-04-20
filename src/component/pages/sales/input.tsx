@@ -1,15 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, {  useState } from "react";
 // import Dropdown from "./dropdown";
 import { entry } from "../../type";
-import { CurrentUserContext, UseCurrentPage } from "../../context";
 type prop = {
   List: entry[];
   setList: React.Dispatch<React.SetStateAction<entry[]>>;
 };
 export default function Input({ List, setList }: prop) {
   const [name, setname] = useState("");
-  const currentUser=useContext(CurrentUserContext)?.currentUser
-  const currentpage=useContext(UseCurrentPage).currentPage
   
   return (
     <div className="w-full flex items-center justify-between relative z-40  -mt-1">
