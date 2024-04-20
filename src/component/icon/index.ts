@@ -21,6 +21,7 @@ import SuccessIcon from "./success";
 import DownArrowIcon from "./arrow";
 import DiscountIcon from "./discount";
 import CoupanIcon from "./coupan";
+import Logout from "./logouticon";
 export {
   CustomerIcon,
   SuppliesIcon,
@@ -45,4 +46,5 @@ export {
   DownArrowIcon,
   DiscountIcon,
   CoupanIcon,
+  Logout
 };

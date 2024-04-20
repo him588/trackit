@@ -1,24 +1,38 @@
 import React, { useContext, useEffect, useState } from "react";
 import {
   CustomerIcon,
+  Logout,
   PurchaeIcon,
   SalesIcon,
   SettingIcon,
   SuppliesIcon,
 } from "../../icon";
 import Profile from "./profile";
-import { Link } from "react-router-dom";
-import { UseCurrentPage } from "../../context";
+import { Link, useNavigate } from "react-router-dom";
+import { CurrentUserContext, UseCurrentPage } from "../../context";
 import { useFindpage } from "../../custom";
 export default function Navbar() {
+
   const Activepage = useFindpage();
+  const navigate=useNavigate()
   const { currentPage } = useContext(UseCurrentPage);
+  const {setcurrentUser}=useContext(CurrentUserContext)||{}
   const [show,setshow]=useState(true)
   useEffect(()=>{
     if(window.innerWidth<400){
       setshow(false)
     }
   },[])
+  function handleLogout(){
+if(setcurrentUser){
+  setcurrentUser(()=>{
+    localStorage.removeItem("currentuser")
+    return null
+  })
+  navigate("/login")
+}
+
+  }
   // console.log(currentPage)
   return (
     <div className={` min-h-screen py-1 bg-[#0f1525] px-1 max-[400px]:hidden ${show?"w-[200px]":"w-[70px]"}`}>
@@ -119,22 +133,21 @@ export default function Navbar() {
         </div>
         <p className=" text-lg text-white mt-3">Setting</p>
         <div className=" mt-2">
-          <Link
-            to={"/setting"}
+          <div
             className={`flex items-center gap-2 px-2 rounded-md py-[2px] cursor-pointer ${
               currentPage.setting ? "text-white bg-[#1b2b4b]" : "text-[#3d425a]"
             }`}
-            onClick={() => Activepage("setting")}
+            onClick={handleLogout}
           >
-            <SettingIcon
+            <Logout
              h={show?30:60}
              w={show?25:45}
               
               c={currentPage.setting ? "white" : "#3d425a"}
             />
 
-         <p className="  text-lg">{show?"Settings":""}</p>
-          </Link>
+         <p className="  text-lg">{show?"Logout":""}</p>
+          </div>
         </div>
       </div>
     </div>
