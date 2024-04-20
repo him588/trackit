@@ -1,7 +1,7 @@
 // import Design from "./design";
 // import HomeNav from "./homenav";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
@@ -9,8 +9,6 @@ export default function Home() {
   useEffect(()=>{
     router("/login")
   },[router])
-  const [IsAnimate, setIsAnimate] = useState(false);
-  const [SecondBox, setSecondBox] = useState(false);
   return (
     <div className=" h-screen min-w-[100vh] p-6">
       {/* FIRST ANIMATION  */}
