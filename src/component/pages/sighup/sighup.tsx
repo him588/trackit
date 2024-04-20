@@ -2,7 +2,10 @@
 import { Design } from "../../core";
 import Form from "./form";
 import { AppleIcon, FacebookIcon, GoogleIcon } from "../../icon";
+import { useNavigate } from "react-router-dom";
 export default function Sighup() {
+  const navigate=useNavigate()
+
   return (
     <div className=" min-h-screen w-[100%] flex bg-[#0f1525]">
       <div className=" w-1/2 min-h-screen p-14">
@@ -54,8 +57,8 @@ export default function Sighup() {
           </div>
         </div>
         <p className=" text-sm text-center mt-8 font-semibold text-white ">
-          Not a member?{" "}
-          <span className=" text-green-800 cursor-pointer">Register now</span>
+          Already have account ? 
+          <span onClick={()=>navigate("/login")} className=" text-green-800 cursor-pointer"> Login</span>
         </p>
       </div>
       <div className=" w-1/2 min-h-full  py-10 px-10">

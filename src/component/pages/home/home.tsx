@@ -1,9 +1,14 @@
 // import Design from "./design";
 // import HomeNav from "./homenav";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const router=useNavigate()
+  useEffect(()=>{
+    router("/login")
+  },[router])
   const [IsAnimate, setIsAnimate] = useState(false);
   const [SecondBox, setSecondBox] = useState(false);
   return (

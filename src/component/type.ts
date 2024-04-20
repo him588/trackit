@@ -19,6 +19,7 @@ type entry = {
   argument: string;
   amount: number;
   Ispaymentrecieved: boolean;
+  createdby:string|undefined
 };
 type person = {
   readonly id: string;

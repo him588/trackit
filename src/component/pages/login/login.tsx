@@ -2,10 +2,12 @@ import { AppleIcon, FacebookIcon, GoogleIcon } from "../../icon";
 
 import { Design } from "../../core";
 import Form from "./form";
+import { useNavigate } from "react-router-dom";
 // import { useContext } from "react";
 // import { UserContext } from "../../context";
 
 export default function Login() {
+  const navigate=useNavigate()
   return (
     <div className=" min-h-screen w-[100%] flex justify-center items-center bg-[#0f1525]">
       {/* <h1 className=" absolute top-5 left-5 text-[40px] font-medium text-white">
@@ -61,7 +63,7 @@ export default function Login() {
         </div>
         <p className=" text-sm text-[white] text-center mt-8 font-semibold ">
           Not a member?{" "}
-          <span className=" text-green-800 cursor-pointer">Register now</span>
+          <span onClick={()=>navigate("/sighup")} className=" text-green-800 cursor-pointer">Register now</span>
         </p>
       </div>
       <div className=" w-1/2 min-h-screen px-16 py-5    ">

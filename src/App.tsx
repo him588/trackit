@@ -5,11 +5,10 @@ import {
   Customer,
   Home,
   Login,
-  Purchases,
   Sales,
+  Setting,
   Sighup,
 } from "./component/pages";
-// import CurrentPageProvider from "./component/context/currentpageprovider";
 import {
   UserContextProvider,
   CurrentPageProvider,
@@ -17,10 +16,8 @@ import {
   SelectedPersonContextProvider,
 } from "./component/context";
 import { Fulldeatail } from "./component/core";
-// import { useContext } from "react";
 
 function App() {
-  // localStorage.clear();
   return (
     <BrowserRouter>
       <UserContextProvider>
@@ -34,9 +31,10 @@ function App() {
                 <Route path="/Customers" element={<Customer />} />
                 <Route path="/Suppliers" element={<Customer />} />
                 <Route path="/Sales" element={<Sales />} />
-                <Route path="/Purchase" element={<Purchases />} />
+                <Route path="/Purchase" element={<Sales />} />
                 <Route path="/Cashbook" element={<Cashbook />} />
                 <Route path="/person/:id" element={<Fulldeatail />} />
+                <Route path="/setting" element={<Setting />} />
               </Routes>
             </SelectedPersonContextProvider>
           </CurrentUserContextProvider>

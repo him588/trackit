@@ -19,6 +19,8 @@ import NewSalesIcon from "./newsales";
 import DeleteIcon from "./delete";
 import SuccessIcon from "./success";
 import DownArrowIcon from "./arrow";
+import DiscountIcon from "./discount";
+import CoupanIcon from "./coupan";
 export {
   CustomerIcon,
   SuppliesIcon,
@@ -41,4 +43,6 @@ export {
   DeleteIcon,
   SuccessIcon,
   DownArrowIcon,
+  DiscountIcon,
+  CoupanIcon,
 };

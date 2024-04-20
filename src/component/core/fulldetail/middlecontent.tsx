@@ -13,7 +13,7 @@ function MiddleSection() {
   const [EntriesAndDateArray, setEntriesAndDateArray] = useState<
     InsideObject[]
   >([]);
-  const bottomref = useRef<HTMLDivElement | null>(null);
+  // const bottomref = useRef<HTMLDivElement>();
   const boxref = useRef<HTMLDivElement | null>(null);
   function handlescroll() {
     boxref.current?.scrollTo({
@@ -22,7 +22,7 @@ function MiddleSection() {
     });
   }
   useEffect(() => {
-    bottomref.current?.scrollIntoView();
+    handlescroll()
   }, [EntriesAndDateArray]);
   useEffect(() => {
     SortEntryAndDate({ PersonDetails, setEntriesAndDateArray });
@@ -33,7 +33,7 @@ function MiddleSection() {
   return (
     <div
       ref={boxref}
-      className=" h-full  w-full relative z-20 p-1 overflow-scroll scrollbar-hide "
+      className=" h-full  w-full relative z-20 px-1 py-1 overflow-scroll scrollbar-hide bg-gray-900 "
     >
       {PersonDetails?.entries.length === 0 ? (
         <DefaultMsg />
@@ -51,10 +51,11 @@ function MiddleSection() {
           })}
         </div>
       )}
-      <div ref={bottomref}></div>
+      {/* <div className="" ref={bottomref}></div> */}
+
       <div
         onClick={handlescroll}
-        className=" fixed bottom-14 rounded-lg right-2 h-[50px] w-[45px] bg-[white] flex items-center justify-center cursor-pointer  "
+        className=" fixed bottom-16 rounded-lg right-2 h-[50px] w-[45px] bg-[white] flex items-center justify-center cursor-pointer  "
       >
         <DownArrowIcon h={30} w={25} c="#16233e" />
       </div>

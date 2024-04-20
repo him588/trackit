@@ -6,11 +6,14 @@ import { SelectedPersonContext } from "../../context";
 
 export default function Bottom() {
   const SelectedPerson = useContext(SelectedPersonContext)?.selectedPerson
-    ?.type;
+    
+  console.log(SelectedPerson)
+
   const [Input, setInputs] = useState({
     argument: "",
     amount: "",
-    type: SelectedPerson === "customer" ? "sales" : "purchase",
+    type: SelectedPerson?.type === "supplier" ? "purchase" : "sales",
+    createdby:SelectedPerson?.id
   });
   const addentry = useAddEntry();
   const pattern = /^[0-9]+$/;
@@ -21,31 +24,34 @@ export default function Bottom() {
     }
     if (Input.amount === "") {
       alert(
-        `${SelectedPerson === "customer" ? "Enter sales" : "Enter purchase"}`
+        `${SelectedPerson?.type === "customer" ? "Enter sales" : "Enter purchase"}`
       );
       return;
     }
     if (Input.amount === "") {
       alert(
-        `${SelectedPerson === "customer" ? "Enter sales" : "Enter purchase"}`
+        `${SelectedPerson?.type === "customer" ? "Enter sales" : "Enter purchase"}`
       );
       return;
     }
-    addentry(Input);
+    if(Input.createdby!==undefined){
+      addentry(Input);
+    }
+    
     setInputs((prev) => {
       return { ...prev, amount: "", argument: "" };
     });
   }
 
   return (
-    <div className=" w-full h-auto flex relative z-50  justify-end">
+    <div className=" w-full h-auto p-1 flex relative z-50  justify-end">
       <div className=" h-[50px] w-[100%] flex items-center justify-center cursor-pointer bg-[#f3f3ff]">
-        <div className=" w-full h-full px-3 py-[6px] flex gap-2 justify-between">
+        <div className=" w-full h-full px-3 flex gap-2 justify-between">
           <input
             type="text"
             className=" h-full w-[300px] outline-none px-2 rounded-md"
             placeholder={`${
-              SelectedPerson === "customer" ? "Enter sales" : "Enter purchase"
+              SelectedPerson?.type === "customer" ? "Enter sales" : "Enter purchase"
             }`}
             onClick={(e) => e.stopPropagation()}
             value={Input.argument}

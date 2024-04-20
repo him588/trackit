@@ -27,13 +27,14 @@ export default function Customer() {
         <RenderCustomer setaddPerson={setaddPerson} />
 
       </div>
-      <div className=" w-[calc(100%-30%-200px)] max-h-screen bg-[#f3f3fc] max-[400px]:hidden">
+      <div className=" w-[calc(100%-30%-200px)] max-h-screen bg-[#f3f3fc] ">
         {SelectedPerson === null ? (
           <div className=" w-full h-full flex-col flex items-center justify-center">
             <CustomerIcon h={200} w={120} c="#adadad" />
             <h1 className=" text-[40px] text-[#adadad]">No Person selected</h1>
           </div>
         ) : (
+          
           <Fulldeatail />
         )}
       </div>
