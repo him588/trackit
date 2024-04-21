@@ -44,7 +44,7 @@ export default function Bottom() {
   }
 
   return (
-    <div className=" w-full h-auto p-1 flex relative z-50  justify-end">
+    <div className=" w-full h-auto p-1 py-2 flex relative z-50  justify-end">
       <div className=" h-[50px] w-[100%] flex items-center justify-center cursor-pointer bg-[#f3f3ff]">
         <div className=" w-full h-full px-3 flex gap-2 justify-between">
           <input
