@@ -27,14 +27,14 @@ export default function TopNav() {
   >
     Purchase
  </p>
- <p className={` cursor-pointer ${currentPage.cashbook ? " text-blue-600 " : "text-[#4f4f4f] "}`}
+ {/* <p className={` cursor-pointer ${currentPage.cashbook ? " text-blue-600 " : "text-[#4f4f4f] "}`}
     onClick={() => {
       ActivePage("cashbook");
       Navigate("/Cashbook");
     }}
   >
     Cashbook
- </p>
+ </p> */}
 </div>
 }
 
