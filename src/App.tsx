@@ -1,9 +1,10 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
-  Cashbook,
+  
   Customer,
   Home,
+  
   Login,
   Sales,
   Setting,
@@ -32,7 +33,7 @@ function App() {
                 <Route path="/Suppliers" element={<Customer />} />
                 <Route path="/Sales" element={<Sales />} />
                 <Route path="/Purchase" element={<Sales />} />
-                <Route path="/Cashbook" element={<Cashbook />} />
+                {/* <Route path="/Cashbook" element={<Cashbook />} /> */}
                 <Route path="/person/:id" element={<Fulldeatail />} />
                 <Route path="/setting" element={<Setting />} />
               </Routes>
